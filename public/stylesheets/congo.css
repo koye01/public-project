@@ -1,0 +1,11 @@
+.thumbnail img {
+    width: 100%;
+}
+#danger {
+    display: inline;
+}
+
+.para {
+    margin: 2px 2px;
+    padding: 2px 2px;
+}

@@ -1,0 +1,30 @@
+<%-include("./partials/header.ejs") %>
+<div class="container">
+
+<%if(searchbar.length > 0){%>
+    <% searchbar.forEach(function(search){%>
+            <div class="col-md-4 col-sm-6">
+                <div class="thumbnail">
+                    <img height="250px" alt="<%= search.name %>" src="<%= search.image %>">
+                    <div class="para row text-center">
+                        <h1><%= search.name %> for sales</h1>
+                        <p><%= search.description.substring(0, 100) + "..." %></p>
+                        <p><a class="btn btn-default btn-block" href="/allproducts/<%= search._id %>">Read more</a></p>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            
+        <%});%>
+<%}else{%>
+    <h3>product not found, try and re-spell</h3>
+    <a href="/allproducts">Go back to product gallery</a>
+<%}%>
+
+        
+</div>
+
+
+<%-include("./partials/footer.ejs") %>

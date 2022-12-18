@@ -1,0 +1,73 @@
+<%-include("./partials/header") %>
+<div class="container">
+    <div>
+            <h3>Welcome to <%=user.username%>'s profile page</h3>
+        <%var userFollower = user.followers;%>
+        <p>
+            <%if(currentUser && user.username == currentUser.username){%>
+                <a class="btn btn-success" disabled="disabled">follow <%=user.username%></a>
+                <%=user.followers.length%> followers
+                <%}else if(!currentUser) {%>
+                <a class="btn btn-success" href="/follow/<%=user.id%>">follow <%=user.username%></a>
+                        <%=user.followers.length%> followers
+                <%}else if(currentUser && unique.username != currentUser.username && user.username != currentUser.username){%>
+                    <a class="btn btn-success" href="/follow/<%=user.id%>">follow <%=user.username%></a>
+                    <%=user.followers.length%> followers
+                <%}%>
+        </p>
+        
+            <% for(var checkFollower of unique){%>
+                <%if(currentUser && checkFollower.username == currentUser.username){%>
+                    <a class="btn btn-success" disabled="disabled">following <%=user.username%></a>
+                <p id="danger">
+                    <a href="/unfollow/<%=user.id%>" class="btn btn-danger">Unfollow <%= user.username%></a>
+                </p>
+                
+                <%}%>
+            <%}%>
+
+            
+        
+    </div>
+    
+    <div>
+        <h3>business profile;</h3>
+            my full name is: <%=user.fullname%>
+        <p><%-user.description%></p>
+        <p><%=user.telephone%></p>
+        
+    </div>
+
+    <p></p>
+    <div>
+        <%product.forEach(function(pro){%>
+            <%if(user.username === pro.author.username){%>
+                <div class="col-md-4 col-sm-6">
+                    <div class="thumbnail">
+                        <h3 class="para row text-center">
+                            available <%=pro.name%> for sales
+                        </h3>
+                        <img src="<%=pro.image%>" alt="<%=pro.name%>">
+                        <div class="row text-center">
+                            <em>created by <%=pro.author.username%></em>
+                        </div>
+                        <div class="para row text-center">
+                            <%=pro.description%>
+                        </div>
+                        <h3><a href="/allproducts/<%=pro._id%>" class="btn btn-success btn-block"> click to view more</a></h3>
+                    </div>
+                        
+                </div>
+                
+            <%}%>
+            
+        <%}) %>
+    </div>
+  
+         
+
+    
+</div>
+
+<%-include("./partials/footer") %>
+

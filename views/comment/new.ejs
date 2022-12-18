@@ -1,0 +1,16 @@
+<%-include("../partials/header") %>
+<div class="container">
+        <h3 style="text-align: center;">Add new comment to <%=comment.name %> </h3>
+    <form action="/allproducts/<%= comment._id%>/comments" method="POST">
+        <div style="width: 40%; margin: 25px auto;">
+            
+            <div>
+                <input class="form-control" type="text" name="comment[post]" placeholder="comment here">
+            </div>
+                <button>Submit</button>
+        </div>
+   
+    </form>
+</div>
+
+<%-include("../partials/footer") %>

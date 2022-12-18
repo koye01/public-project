@@ -1,0 +1,50 @@
+<%-include("./partials/header") %>
+
+
+<div class="container">
+        
+    <div class="jumbotron">
+        <div class="container">
+            <% if(currentUser && currentUser.isAdmin){%>
+                <p>You're an admin!</p>
+                <% }%>
+            <h2>Welcome to our product gallery page</h2>
+            <p>The first in Nigeria!</p>
+            <h3><a class="btn btn-primary btn-lg" href="/allproducts/new">Add new gadget</a></h3>
+            <form action="/search" method="post">
+                 <input type="search" name="search" autofocus="autofocus" placeholder="small letters only">
+                    <button class="btn btn-default" >search</button>
+                 
+            </form>
+           
+        </div>
+        
+    </div>
+  
+        <div class="row" style="display:flex; flex-wrap: wrap;">
+                <% products.slice().reverse().forEach(function(product){%>
+                    <div class="col-md-4 col-sm-6">
+
+                        <div class="thumbnail">
+                            <img height="250px" alt="<%= product.name %>" src="<%= product.image %>">
+                            
+                            <div class="para row text-center">
+                                <h1><%= product.name %> for sales</h1>
+                                <p><%- product.description.substring(0, 100)+ "..." %></p>
+                                <p><strong>=N= <%= product.price %></strong></p>
+                            </div>
+                            <p><a class="btn btn-default btn-block" href="/allproducts/<%= product._id %>">Read more</a></p>
+                        </div>    
+                            
+                        
+                    </div>
+                    
+                <%});%>
+        </div>
+        
+        
+   
+</div>
+
+
+<%- include("./partials/footer.ejs") %>

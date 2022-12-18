@@ -1,0 +1,8 @@
+<h1>View all Notifications</h1>
+<% allNotifications.forEach(function(notification){ %>
+    <li>
+        <a href="/notifications/<%=notification.id %>">
+            <%= notification.username %> created a new Gallery
+        </a>
+    </li>
+<% }); %>

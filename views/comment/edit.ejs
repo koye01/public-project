@@ -1,0 +1,16 @@
+<%-include("../partials/header") %>
+<div class="container">
+        <h3 style="text-align: center;">Edit comment %> </h3>
+    <form action="/allproducts/<%=products_id%>/comments/<%=comment._id%>?_method=PUT" method="POST">
+        <div style="width: 40%; margin: 25px auto;">
+            
+            <div>
+                <input class="form-control" type="text" name="comment[post]" value="<%=comment.post%>">
+            </div>
+                <button>Submit</button>
+        </div>
+   
+    </form>
+</div>
+
+<%-include("../partials/footer") %>

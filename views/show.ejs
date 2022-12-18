@@ -1,0 +1,41 @@
+<%-include("./partials/header") %>
+<div class="container">
+    <div class="thumbnail">
+        <img class="image-responsive" src="<%=products.image%>" alt="<%=products.name%>">
+        <div class="caption-full">
+            <em>Submitted by <a href="/users/<%= products.author.id %>"><%= products.author.username%></a></em>
+            <h1><%= products.name%> for sales</h1>
+            <p><%= products.description%></p>
+        </div>
+        <% if(currentUser && products.author.id.equals(currentUser._id) ||currentUser && currentUser.isAdmin){%>
+            <a class="btn btn-warning btn-xs" href="/allproducts/<%= products._id %>/edit">Edit</a>
+            <form id="danger" action="/allproducts/<%=products._id%>" method="POST">
+                <button class="btn btn-danger btn-xs">Delete</button>
+            </form>
+        <%}%>
+
+    </div>
+    
+   <div class="well">
+       <a class="btn btn-primary" href="/allproducts/<%= products._id%>/comments/new">Add comment</a>
+       <div class="container">
+            <% products.comments.forEach(function(comment){%> 
+                <p> <a href="/users/<%= comment.author.id %>"> <strong><%= comment.author.username %> </strong></a></p>
+                <p><%= comment.post %></p>
+                <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                    <a class="btn btn-warning btn-xs" 
+                        href="/allproducts/<%= products._id%>/comments/<%=comment._id%>/edit">
+                        Edit</a>
+                    <form id="danger" action="/allproducts/<%= products._id%>/comments/<%=comment._id%>?_method=Delete" method="POST">
+                        <button class="btn btn-danger btn-xs">Delete</button>
+                    </form>
+                <%}%>
+                
+            <%}) %>
+        </div>
+    </div>
+   
+ 
+</div>
+
+<%-include("./partials/footer") %>
