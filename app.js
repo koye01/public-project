@@ -71,6 +71,4 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 
-app.listen("5000", function(){
-    console.log("loading in progress!");
-});
+app.listen(process.env.PORT, process.env.IP);
