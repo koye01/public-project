@@ -12,7 +12,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
             console.log(err);
             res.redirect("/back");
         }else{
-            res.render("comment/new", {comment: comment});
+            res.render("comment/new", {comment: comment, title: 'comment on' + comment});
         }
     })
 });
@@ -47,7 +47,7 @@ router.get("/:comment_id/edit", middleware.commentOwnership, function(req, res){
             console.log(err);
             res.redirect("back");
         }else{
-            res.render("comment/edit", {products_id: req.params.id, comment: editing})
+            res.render("comment/edit", {products_id: req.params.id, comment: editing, title: 'edit comment'})
         }
     });
 });

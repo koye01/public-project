@@ -41,14 +41,14 @@ router.get("/", function(req, res){
         if(err){
             console.log(err);
         }else{
-            res.render("index", {products: products});
+            res.render("index", {products: products, title: 'homepage'});
         }
     })
 });
 
 //New product route
 router.get("/new", middleware.isLoggedIn, function(req, res){
-    res.render("new");
+    res.render("new", {title: 'add to gallery'});
 });
 
 router.post("/",  middleware.isLoggedIn, upload.single("product[image]"),function(req, res){
@@ -98,7 +98,7 @@ router.get("/:id", function(req, res){
            console.log(err);
            res.redirect("/allproducts");
        }else{
-           res.render("show", {products: showProducts});
+           res.render("show", {products: showProducts, title: showProducts.name + ' for sales'});
        }
    });
 });
@@ -109,7 +109,7 @@ router.get("/:id/edit", middleware.checkOwnership, function(req, res){
         if(err){
             console.log(err);
         }else{
-            res.render("edit", {goods: goods});
+            res.render("edit", {goods: goods, title: 'edit page'});
         }
     });
 });
@@ -136,7 +136,7 @@ router.put("/:id", middleware.checkOwnership, upload.single("update[image]"), fu
             updatedGoods.description = req.body.update.description;
             updatedGoods.save();
             req.flash("success", "successfully updated");
-            res.redirect("/allproducts/" + updatedGoods._id);
+            res.redirect("/allproducts/" + updatedGoods._id, {title: 'update page'});
         }
     });
     
@@ -153,7 +153,7 @@ router.post("/:id", middleware.checkOwnership, function(req, res){
                 await cloudinary.v2.uploader.destroy(goods.imageId);
                 goods.remove();
                 req.flash("success", "product successfully deleted");
-                res.redirect("/allproducts");
+                res.redirect("/allproducts", {title: 'delete'});
             }catch(err){
                 req.flash("error", err.message);
                 return res.redirect("/show");

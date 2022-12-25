@@ -9,3 +9,19 @@
     margin: 2px 2px;
     padding: 2px 2px;
 }
+
+.emi {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.emilokan {
+    background-image: url(logo.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+.form-control {
+    background: transparent;
+    border: 0px;
+    border-radius: 0px;
+}

@@ -8,11 +8,12 @@
             <% if(currentUser && currentUser.isAdmin){%>
                 <p>You're an admin!</p>
                 <% }%>
-            <h2>Welcome to our product gallery page</h2>
-            <p>The first in Nigeria!</p>
+                        <h2>Welcome to our product gallery page</h2>
+                        <p>The first in Nigeria!</p>
+            
             <h3><a class="btn btn-primary btn-lg" href="/allproducts/new">Add new gadget</a></h3>
             <form action="/search" method="post">
-                 <input type="search" name="search" autofocus="autofocus" placeholder="small letters only">
+                 <input type="search" name="search" autofocus="autofocus" placeholder="enter search key">
                     <button class="btn btn-default" >search</button>
                  
             </form>

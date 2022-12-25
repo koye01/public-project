@@ -18,15 +18,15 @@ router.get("/", function(req, res){
 });
 
 router.get("/aboutus", function(req, res){
-    res.render("aboutus");
+    res.render("aboutus", {title: 'about us'});
 });
 router.get("/contactus", function(req, res){
-    res.render("contactus");
+    res.render("contactus", {title: 'contact us'});
 });
 
 //register route
 router.get("/register", function(req, res){
-    res.render("register");
+    res.render("register", {title: 'signup'});
 });
 
 router.post("/register", function(req, res){
@@ -51,7 +51,7 @@ router.post("/register", function(req, res){
 
 //login route
 router.get("/login", function(req, res){
-    res.render("login");
+    res.render("login", {title: 'login page'});
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -75,7 +75,7 @@ router.get("/logout", function(req, res){
 
 //forgot password
 router.get("/forgot", function(req, res){
-    res.render("users/forgot");
+    res.render("users/forgot", {title: 'password reset'});
 });
 
 router.post("/forgot", function(req, res, next){
@@ -138,7 +138,7 @@ router.get("/reset/:token", function(req, res){
         req.flash("error", "password reset token has been expired.");
         return res.redirect("/forgot");
     }
-    res.render("users/reset", {token: req.params.token});
+    res.render("users/reset", {token: req.params.token, title: 'reset token'});
 });
 });
 
@@ -200,7 +200,7 @@ router.post("/search", function(req, res){
             req.flash("error", err.message);
             res.redirect("/allproducts");
         }else{
-            res.render("search", {searchbar: search});
+            res.render("search", {searchbar: search, title: 'search keyword'});
         }
     })
 });
@@ -214,7 +214,7 @@ router.get("/users/:id", async function(req, res){
         var unique = user.followers.filter((value, index)=>{
             return user.followers.indexOf(value) === index;
         });
-        res.render('profile', {user, product, unique});
+        res.render('profile', {user, product, unique, title: user.username  + ' profile'});
     } catch(err) {
         req.flash("error", err.message);
         console.log(err);
@@ -264,7 +264,7 @@ router.get('/notifications', middleware.isLoggedIn, async function(req, res){
             options: {sort: {"_id": -1}}
         }).exec();
         var allNotifications = user.notifications;
-        res.render('notification/index', {allNotifications});
+        res.render('notification/index', {allNotifications, title: 'notification page'});
     } catch(err) {
         console.log(err);
         res.redirect('back');
