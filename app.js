@@ -75,3 +75,4 @@ var upload = multer({storage: storage});
 
 
 app.listen(process.env.PORT, process.env.IP);
+console.log("application is now running");
