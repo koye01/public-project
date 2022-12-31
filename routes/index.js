@@ -14,7 +14,7 @@ var expressSanitizer = require("express-sanitizer");
 
 
 router.get("/", function(req, res){
-    res.render("landing");
+    res.redirect("/allproducts");
 });
 
 router.get("/aboutus", function(req, res){
@@ -204,6 +204,7 @@ router.post("/search", function(req, res){
         }
     })
 });
+
 
 //USER PROFILE ROUTE
 router.get("/users/:id", async function(req, res){
