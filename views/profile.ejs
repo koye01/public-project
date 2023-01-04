@@ -32,9 +32,12 @@
     
     <div>
         <h3>business profile;</h3>
-            my full name is: <%=user.fullname%>
-        <p><%-user.description%></p>
-        <p><%=user.telephone%></p>
+            <strong>my name is: </strong><%=user.fullname%>
+        <p><strong>brief description: </strong><%-user.description%></p>
+        <%if(user.isAdmin){%>
+            <strong>email: </strong> <%=user.email%>
+        <%}%>
+        <p><strong>phone number:</strong> <%=user.telephone%></p>
         
     </div>
 

@@ -1,5 +1,12 @@
+<head>
+    <meta name="description", content="We are the leading company when it comes to linking buyers and sellers of commodities together. Our 
+    reach covers every location within Nigeria">
+    <% products.forEach(function(product){%>
+        <meta name="keywords", content="<%=product.name%>, <%=product.name%> for sales, cheap online <%=product.name%>">
+    <%})%>
+    
+</head>
 <%-include("./partials/header") %>
-
 
 <div class="container">
         
@@ -9,7 +16,13 @@
                 <p>You're an admin!</p>
                 <% }%>
                         <h2>Welcome to our product gallery page</h2>
-                        <p>The first in Nigeria!</p>
+                        <p>
+                            We are the leading company when it comes to linking buyers and sellers of commodities together. Our 
+                            reach covers every location within Nigeria, we have worked tirelessly inorder to make buyers and sellers of
+                            commodities to come to contact without stress. Producers of commodities are also welcome to this platform; 
+                            either you specializes in the production of agricultural related commodities, industrial related commodities, ..
+                            <a href="/aboutus">Read more</a>
+                        </p>
             
             <h3><a class="btn btn-primary btn-lg" href="/allproducts/new">Add new gadget</a></h3>
             <form action="/search" method="post">

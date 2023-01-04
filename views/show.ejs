@@ -10,6 +10,7 @@
         <div class="caption-full">
             <em>Submitted by <a href="/users/<%= products.author.id %>"><%= products.author.username%></a></em>
             <h1><%= products.name%> for sales</h1>
+            price: <strong>=N= <%= products.price%></strong>
             <p><%= products.description%></p>
         </div>
         <% if(currentUser && products.author.id.equals(currentUser._id) ||currentUser && currentUser.isAdmin){%>

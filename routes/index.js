@@ -16,7 +16,9 @@ var expressSanitizer = require("express-sanitizer");
 router.get("/", function(req, res){
     res.redirect("/allproducts");
 });
-
+router.get("/termandconditions", function(req, res){
+    res.render("terms", {title: 'term and conditions'})
+})
 router.get("/aboutus", function(req, res){
     res.render("aboutus", {title: 'about us'});
 });
