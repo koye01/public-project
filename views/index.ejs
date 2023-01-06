@@ -4,7 +4,15 @@
     <% products.forEach(function(product){%>
         <meta name="keywords", content="<%=product.name%>, <%=product.name%> for sales, cheap online <%=product.name%>">
     <%})%>
-    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H63R206KH"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1H63R206KH');
+    </script>
 </head>
 <%-include("./partials/header") %>
 
