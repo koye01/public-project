@@ -134,9 +134,10 @@ router.put("/:id", middleware.checkOwnership, upload.single("update[image]"), fu
             }
             updatedGoods.name = req.body.update.name;
             updatedGoods.description = req.body.update.description;
+            updatedGoods.phone = req.body.update.phone;
             updatedGoods.save();
             req.flash("success", "successfully updated");
-            res.redirect("/allproducts/" + updatedGoods._id, {title: 'update page'});
+            res.redirect("/allproducts/" + updatedGoods._id);
         }
     });
     

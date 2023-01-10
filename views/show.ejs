@@ -12,6 +12,7 @@
             <h1><%= products.name%> for sales</h1>
             price: <strong>=N= <%= products.price%></strong>
             <p><%= products.description%></p>
+            <p><%= products.phone%></p>
         </div>
         <% if(currentUser && products.author.id.equals(currentUser._id) ||currentUser && currentUser.isAdmin){%>
             <a class="btn btn-warning btn-xs" href="/allproducts/<%= products._id %>/edit">Edit</a>
