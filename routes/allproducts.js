@@ -154,7 +154,7 @@ router.post("/:id", middleware.checkOwnership, function(req, res){
                 await cloudinary.v2.uploader.destroy(goods.imageId);
                 goods.remove();
                 req.flash("success", "product successfully deleted");
-                res.redirect("/allproducts", {title: 'delete'});
+                res.redirect("/allproducts");
             }catch(err){
                 req.flash("error", err.message);
                 return res.redirect("/show");
