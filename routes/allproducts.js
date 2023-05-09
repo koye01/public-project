@@ -98,7 +98,7 @@ router.get("/:id", function(req, res){
            console.log(err);
            res.redirect("/allproducts");
        }else{
-           res.render("show", {products: showProducts, title: showProducts.name + ' for sales'});
+           res.render("show", {products: showProducts, title: showProducts.name + ' available'});
        }
    });
 });
