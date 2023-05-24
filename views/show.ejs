@@ -1,6 +1,6 @@
 <head>
     <meta property="og:description" content="Price: <%=products.price%> <%=products.description%> ">
-    <meta name="keywords" content="<%=products.name%>, <%=products.name%> online, <%=products.name%> for sales, cheap online <%=products.name%>">
+    <meta name="keywords" content="<%=products.name%>, buy <%=products.name%> online, <%=products.name%> for sales, cheap <%=products.name%> online"> 
     <meta property="og:image" content="<%=products.image%>">
     <meta property="og:url" content="/allproducts">
     <meta name="twitter:card" content="summary">
@@ -14,7 +14,7 @@
         <img class="image-responsive" src="<%=products.image%>" alt="<%=products.name%>">
         <div class="caption-full">
             <em>Submitted by <a href="/users/<%= products.author.id %>"><%= products.author.username%></a></em>
-            <h1><%= products.name%> available</h1>
+            <h1><%= products.name%> for sales</h1>
             price: <strong>=N= <%= products.price%></strong>
             <p><%= products.description%></p>
             <p><%= products.phone%></p>
