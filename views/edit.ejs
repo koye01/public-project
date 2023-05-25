@@ -2,21 +2,25 @@
 <h1 style="text-align: center;"> Edit <%= goods.name%></h1> 
 <form action="/allproducts/<%=goods._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
     
-    <div style="width: 30%; margin: 25px auto">
+    <div style="width: 100%; margin: 25px auto">
         <!-- <img width="100%em" alt="<%= goods.name %>" src="<%= goods.image%>"> -->
         <div class="form-group">
+            <label for="image">Image: </label>
             <input class="form-control" type="file" name="update[image]" placeholder="image" accept="image/*">
         </div>
         <div class="form-group">
+            <label for="name">Name: </label>
                 <input class="form-control" type="text" name="update[name]" value="<%= goods.name %>" placeholder="name">
         </div>
 
             
         <div class="form-group">
+            <label for="description">Description: </label>
             <input class="form-control" type="text" name="update[description]" value="<%= goods.description %>" placeholder="description">
         </div>
 
         <div class="form-group">
+            <label for="phone">Phone no: </label>
             <input class="form-control" type="text" name="update[phone]" value="<%= goods.phone %>" placeholder="phone number">
         </div>
         <button>Submit</button>

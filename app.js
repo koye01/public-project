@@ -22,7 +22,7 @@ var allproductsRoutes = require("./routes/allproducts");
 var commentsRoutes = require("./routes/comments");
 var indexRoutes = require("./routes/index");
 
-//mongoose.connect("mongodb://localhost/uthman");
+// mongoose.connect("mongodb://localhost/uthman");
 //mongoose.connect("mongodb+srv://jubril:<condemned>@cluster0.5kundcf.mongodb.net/test");
 mongoose.connect("mongodb+srv://jubril:condemned@cluster0.5kundcf.mongodb.net/?retryWrites=true&w=majority");
 

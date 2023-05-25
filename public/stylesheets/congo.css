@@ -25,3 +25,15 @@
     border: 0px;
     border-radius: 0px;
 }
+form {
+    padding-left: 5px;
+    margin: auto;
+    max-width: 400px;
+    border: thin solid rgb(242, 238, 250);
+    box-shadow: 10px 10px 10px rgb(109, 63, 2);
+}
+
+label{
+    margin: auto;
+    text-align: left;
+}
